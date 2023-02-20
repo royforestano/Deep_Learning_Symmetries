@@ -13,7 +13,7 @@ The sym_demo.ipynb file, which relies on the sym_utils.py file, is a demonstrati
 
 ---
 
-Also connected to the paper on: Discovering Sparse Representations of Lie Groups with Machine Learning (arXiv:2302.05383: [https://arxiv.org/abs/2302.05383]).
+Connected to the paper on: Discovering Sparse Representations of Lie Groups with Machine Learning (arXiv:2302.05383: [https://arxiv.org/abs/2302.05383]).
 
 Recent work has used deep learning to derive symmetry transformations, which preserve conserved quantities, and to obtain the corresponding algebras of generators. In this letter, we extend this technique to derive sparse representations of arbitrary Lie algebras. We show that our method reproduces the canonical (sparse) representations of the generators of the Lorentz group, as well as the U(n) and SU(n) families of Lie groups. This approach is completely general and can be used to find the infinitesimal generators for any Lie group.
 
