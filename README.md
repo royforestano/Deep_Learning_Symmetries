@@ -23,3 +23,9 @@ The sym_u_and_su_demo.ipynb file, which relies on the sym_u_and_su.py file, is a
 
 
 ---
+
+Connected to the paper on: Oracle-Preserving Latent Flows (arXiv:2302.00806:[https://arxiv.org/abs/2302.00806]).
+
+We develop a deep learning methodology for the simultaneous discovery of multiple nontrivial continuous symmetries across an entire labelled dataset. The symmetry transformations and the corresponding generators are modeled with fully connected neural networks trained with a specially constructed loss function ensuring the desired symmetry properties. The two new elements in this work are the use of a reduced-dimensionality latent space and the generalization to transformations invariant with respect to high-dimensional oracles. The method is demonstrated with several examples on the MNIST digit dataset.
+
+
