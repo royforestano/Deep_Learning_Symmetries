@@ -358,8 +358,8 @@ def run_model_nonlinear(n, n_dim, n_gen, eps, lr, epochs, oracle):
             history['train_loss'].append(train_loss)
             history['components_loss'].append(comp_loss_for_epoch)
 
-            if i%1000==0:
-                print(f"Epoch {i+1}   |  Train Loss: {train_loss}")#,end='\r') #{train_loss:>8f}
+            if i%100==0:
+                print(f"Epoch {i+1}   |  Train Loss: {train_loss}")#, end='\r') #{train_loss:>8f}
             if i==epochs-1:
                 print(f"Epoch {i+1}   |  Train Loss: {train_loss}")
 
@@ -715,10 +715,7 @@ def verify_struc_constants(n_gen, struc_pred, gens_pred):
                 C = C1 - C2
                 error = torch.mean(torch.abs(C.real))
                 print(str(i+1)+str(j+1)+': \n Structure Constants = '+str(struc_pred[comm_index,:].detach().numpy())+'\n \n C = \n ',C.detach().numpy(),'\n')
-                if error<1e-1:
-                    print(f'The structure constants were found successfully with a mean absolute error (MAE) of {error}. \n \n')
-                elif error>1e-1:
-                    print(f'The structure constants were NOT found successfully with a mean absolute error (MAE) of {error}. \n \n')
+                print(f'The structure constants were found with a mean absolute error (MAE) of {error}. \n \n')
                 Cs.append(C)
                 comm_index+=1
             # Make the cyclic commutators if n_gen = 3   
@@ -731,10 +728,7 @@ def verify_struc_constants(n_gen, struc_pred, gens_pred):
                     C = C1 - C2
                     error = torch.mean(torch.abs(C.real))
                     print(str(j+1)+str(i+1)+': \n Structure Constants = '+str(struc_cyclic[comm_index,:].detach().numpy())+'\n \n C = \n ',C.detach().numpy(),'\n')
-                    if error<1e-1:
-                        print(f'The structure constants were found successfully with a mean absolute error (MAE) of {error}. \n \n')
-                    elif error>1e-1:
-                        print(f'The structure constants were NOT found successfully with a mean absolute error (MAE) of {error}. \n \n') 
+                    print(f'The structure constants were found with a mean absolute error (MAE) of {error}. \n \n') 
                     Cs.append(C)
                     comm_index+=1
                 else:
@@ -745,10 +739,7 @@ def verify_struc_constants(n_gen, struc_pred, gens_pred):
                     C = C1 - C2
                     error = torch.mean(torch.abs(C.real))
                     print(str(i+1)+str(j+1)+': \n Structure Constants = '+str(struc_cyclic[comm_index,:].detach().numpy())+'\n \n C = \n ',C.detach().numpy(),'\n')
-                    if error<1e-1:
-                        print(f'The structure constants were found successfully with a mean absolute error (MAE) of {error}. \n \n')
-                    elif error>1e-1:
-                        print(f'The structure constants were NOT found successfully with a mean absolute error (MAE) of {error}. \n \n') 
+                    print(f'The structure constants were found with a mean absolute error (MAE) of {error}. \n \n') 
                     Cs.append(C)
                     comm_index+=1
     
