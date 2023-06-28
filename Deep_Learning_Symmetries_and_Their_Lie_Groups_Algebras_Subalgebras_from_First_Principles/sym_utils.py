@@ -15,7 +15,7 @@ import matplotlib as mpl
 import scipy
 import os
 import copy
-from tqdm import tqdm
+# from tqdm import tqdm
 from time import time
 
 import torch
@@ -183,7 +183,7 @@ def run_model(n, n_dim, n_gen, n_com, eps, lr, epochs, oracle, include_sc):
             history['components_loss'].append(comp_loss_for_epoch)
         
             if i%100==0:
-                print(f"Epoch {i+1}   |  Train Loss: {train_loss}")#,end='\r') #{train_loss:>8f}
+                print(f"Epoch {i+1}   |  Train Loss: {train_loss}",end='\r') #{train_loss:>8f}
             if i==epochs-1:
                 print(f"Epoch {i+1}   |  Train Loss: {train_loss}")
     
@@ -764,7 +764,7 @@ def verify_struc_constants(n_gen, struc_pred, gens_pred):
 def verify_orthogonality(gens_pred):
     def get_angle(v, w):
         # Angle between vectors
-        return v @ w / (torch.norm(v) * torch.norm(w))
+        return np.arccos( float(v @ w / (torch.norm(v) * torch.norm(w)) ))
 
     def get_axis(M):
         # Finds the eigenvector with min(Imaginary(eigenvalue))
@@ -780,5 +780,5 @@ def verify_orthogonality(gens_pred):
         for j,H in enumerate(gens_pred):
             if i<j:
                 angle = get_angle(get_axis(G).real, get_axis(H).real)
-                angle_deg = 180/np.pi*np.arccos(float(get_angle(get_axis(G).real, get_axis(H).real)))
+                angle_deg = 180/np.pi*get_angle(get_axis(G).real, get_axis(H).real)
                 print(f'Angle between generator {i+1} and {j+1}: {angle:>.10f} rad, {angle_deg:>.10f} deg')
