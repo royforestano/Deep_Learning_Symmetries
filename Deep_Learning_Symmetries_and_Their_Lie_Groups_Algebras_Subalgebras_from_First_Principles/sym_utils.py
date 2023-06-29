@@ -183,7 +183,7 @@ def run_model(n, n_dim, n_gen, n_com, eps, lr, epochs, oracle, include_sc):
             history['components_loss'].append(comp_loss_for_epoch)
         
             if i%100==0:
-                print(f"Epoch {i+1}   |  Train Loss: {train_loss}",end='\r') #{train_loss:>8f}
+                print(f"Epoch {i+1}   |  Train Loss: {train_loss}")#,end='\r') #{train_loss:>8f}
             if i==epochs-1:
                 print(f"Epoch {i+1}   |  Train Loss: {train_loss}")
     
